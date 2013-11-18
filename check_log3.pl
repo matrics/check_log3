@@ -532,7 +532,8 @@ if ($critical > 0) {
 # If -e was used, print the last line parsed with a non-zero result
 # (possibly something else if the code modified $parse_out).
 if ($parse_pattern) {
-	$output = "Parsed output ($parse_count matched): $parse_line";
+	#$output = "Parsed output ($parse_count matched): $parse_line";
+	$output = "Parsed output ($parse_count matched): $pattern_line";
 	$perfdata = "lines=$pattern_count parsed=$parse_count" unless $perfdata;
 } else {
 	$output = $pattern_line;
@@ -558,7 +559,8 @@ $critical .= "%" if $critpct;
 chomp($output);
 print "Found $pattern_count lines (limit=$warning/$critical): ";
 print "\n" if $context;
-print "$output|$perfdata";
+#print "$output|$perfdata";
+print "$output|$perfdata\n$parse_line";
 exit $ERRORS{'OK'} if $always_ok;
 exit $endresult;
 
