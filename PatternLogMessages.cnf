@@ -1,0 +1,12 @@
+{ 
+	my @fields = split(/;/); 
+	if ($fields[1] ne "normal")
+	{ 
+		my $app = $fields[0];
+                $app =~ s/^.*?superv://s;
+                $app =~ s/^\s+|\s+$//g;
+		my $obj = $fields[3];
+		$parse_out = '<a href="http://bdc.meteo.fr/?page=script_HPOVOW&app='.$app.'&obj='.$obj.'">Accès base de consignes</a>'."\n"; 
+		return 1 
+	} 
+}
